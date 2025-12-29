@@ -47,8 +47,6 @@ public class InMemoryUserRepositoryTest {
     @Test
     void shouldNotListUserByUuid(){
         this.inMemoryUserRepository.save(new User(this.firstname, this.lastname, this.email));
-        List<User> users = this.inMemoryUserRepository.findAll();
-        UUID uuid = users.get(0).getUuid();
         Optional<User> user = this.inMemoryUserRepository.findById(UUID.randomUUID());
         assertFalse(user.isPresent());
     }
